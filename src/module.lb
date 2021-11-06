@@ -1,0 +1,32 @@
+import subprocess
+from pathlib import Path
+
+def init(module):
+    module.name = "device"
+    module.description = "canopen device"
+
+
+def prepare(module, options):
+    module.depends("modm:architecture:can")
+    module.depends("modm:architecture:clock")
+    module.depends("modm:processing:timer")
+    module.depends("modm:platform:core")
+    module.add_option(
+        PathOption(name="eds_file", absolute=True,
+                    description="EDS file to generate object dictionary data from"))
+    return True
+
+
+def generate_object_dictionary(env):
+    eds_file = env.get("modm-canopen:device:eds_file")
+    generator_path = Path(__file__).parents[1] / "tools" / "od_generator.py"
+    out_path = Path("modm-canopen/src/modm-canopen/generated")
+    out_path.mkdir(parents=True, exist_ok=True)
+    subprocess.check_call([generator_path, eds_file, out_path / "object_dictionary.hpp"])
+
+
+def build(env):
+    generate_object_dictionary(env)
+    env.outbasepath = "modm-canopen/src/modm-canopen"
+    env.copy(".")
+    env.collect("modm:build:path.include", "modm-canopen/src")
