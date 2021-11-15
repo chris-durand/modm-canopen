@@ -30,14 +30,14 @@ CMakeLists.txt
 **/.vscode/
 
 # ignore generated code in the example folder
-examples/**/modm
-examples/**/modm-canopen
-examples/**/artifacts
-examples/**/compile_commands.json
-examples/**/SConstruct
-examples/**/Makefile
-examples/**/generated
-examples/**/coredump.txt
+examples/src/**/modm
+examples/src/**/modm-canopen
+examples/src/**/artifacts
+examples/src/**/compile_commands.json
+examples/src/**/SConstruct
+examples/src/**/Makefile
+examples/src/**/generated
+examples/src/**/coredump.txt
 
 # repo.lb cache file
 ext/modm-devices.cache
