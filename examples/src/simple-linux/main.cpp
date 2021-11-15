@@ -1,8 +1,8 @@
-#include <modm-canopen/constexpr_map.hpp>
 #include <modm-canopen/canopen_device.hpp>
+#include <modm/platform/can/socketcan.hpp>
+
 #include <iostream>
 #include <thread>
-#include <modm/platform/can/socketcan.hpp>
 #include <modm/debug/logger.hpp>
 
 uint32_t value2002 = 42;
