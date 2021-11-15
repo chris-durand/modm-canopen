@@ -17,3 +17,9 @@ node.tpdo[1].enabled = True
 
 # Save new PDO configuration to node
 node.tpdo.save()
+
+while True:
+    print("TPDO1 received")
+    node.tpdo[1].wait_for_reception()
+    print("\tTest value 1:", node.tpdo[1]['Test 1'].raw)
+    print("\tTest value 2:", node.tpdo[1]['Test 2'].raw)
