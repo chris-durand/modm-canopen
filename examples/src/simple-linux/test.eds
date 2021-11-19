@@ -155,7 +155,7 @@ PDOMapping=0
 ParameterName=Transmission type
 ObjectType=0x7
 DataType=0x0005
-AccessType=const
+AccessType=rw
 DefaultValue=255
 PDOMapping=0
 
@@ -184,7 +184,7 @@ PDOMapping=0
 ParameterName=Transmission type
 ObjectType=0x7
 DataType=0x0005
-AccessType=const
+AccessType=rw
 DefaultValue=255
 PDOMapping=0
 
@@ -213,7 +213,7 @@ PDOMapping=0
 ParameterName=Transmission type
 ObjectType=0x7
 DataType=0x0005
-AccessType=const
+AccessType=rw
 DefaultValue=255
 PDOMapping=0
 
@@ -242,7 +242,7 @@ PDOMapping=0
 ParameterName=Transmission type
 ObjectType=0x7
 DataType=0x0005
-AccessType=const
+AccessType=rw
 DefaultValue=255
 PDOMapping=0
 

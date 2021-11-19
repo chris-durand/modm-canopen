@@ -30,6 +30,9 @@ public:
         map.template setReadHandler<Address{0x1400 + pdo, 2}>(
             // 0xFF: async
             +[]() -> uint8_t { return 0xFF; });
+        map.template setWriteHandler<Address{0x1400 + pdo, 2}>(
+            // 0xFF: async
+            +[](uint8_t transmitMode) -> SdoErrorCode { return transmitMode == 0xFF ? SdoErrorCode::NoError : SdoErrorCode::UnsupportedAccess; });
     }
 
     template<uint8_t pdo, uint8_t mappingIndex>
