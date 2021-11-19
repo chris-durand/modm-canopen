@@ -79,7 +79,9 @@ template<typename OD>
 template<typename Callback>
 void ReceivePdo<OD>::processMessage(const modm::can::Message& message, Callback&& cb)
 {
-    // TODO: check can id?
+    if (message.identifier != canId_) {
+        return;
+    }
     if (active_ && mappingCount_ > 0) {
         std::size_t totalDataSize = 0;
         for (int i = 0; i < mappingCount_; ++i) {
