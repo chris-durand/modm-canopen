@@ -84,14 +84,14 @@ void ReceivePdo<OD>::processMessage(const modm::can::Message& message, Callback&
     }
     if (active_ && mappingCount_ > 0) {
         std::size_t totalDataSize = 0;
-        for (int i = 0; i < mappingCount_; ++i) {
+        for (uint_fast8_t i = 0; i < mappingCount_; ++i) {
             totalDataSize += mappings_[i].bitLength / 8;
         }
         if(totalDataSize > message.length) {
             return;
         }
         std::size_t index = 0;
-        for (int i = 0; i < mappingCount_; ++i) {
+        for (uint_fast8_t i = 0; i < mappingCount_; ++i) {
             const auto address = mappings_[i].address;
             const auto size = mappings_[i].bitLength / 8;
             const auto value = valueFromBytes(mappingTypes_[i], message.data + index);
