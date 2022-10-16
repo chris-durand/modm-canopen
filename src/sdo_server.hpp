@@ -26,13 +26,13 @@ private:
 
 namespace detail
 {
-    auto uploadResponse(uint8_t nodeId, Address address, const Value& value)
+    inline auto uploadResponse(uint8_t nodeId, Address address, const Value& value)
         -> modm::can::Message;
 
-    auto downloadResponse(uint8_t nodeId, Address address)
+    inline auto downloadResponse(uint8_t nodeId, Address address)
         -> modm::can::Message;
 
-    auto transferAbort(uint8_t nodeId, Address address, SdoErrorCode error)
+    inline auto transferAbort(uint8_t nodeId, Address address, SdoErrorCode error)
         -> modm::can::Message;
 };
 
